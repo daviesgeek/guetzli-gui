@@ -1,6 +1,6 @@
 # guetzli-gui
 
-A super simple GUI for Google's JPEG encoder [guetzli](https://github.com/google/guetzli). This is not associated with Google at all.
+A super simple GUI for Google's JPEG encoder [guetzli](https://github.com/google/guetzli)
 
 ![Gui preview](guetzli-gui.png)
 
@@ -9,6 +9,8 @@ To install, first install the guetzli command line tool by following [the instal
 ## Contribution
 
 Please feel free to submit PRs and/or issues for changes. I reserve the right to deny any PRs or feature requests.
+
+Disclaimer: this project is not associated with Google in any way.
 
 ## License
 
