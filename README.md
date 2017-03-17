@@ -6,6 +6,10 @@ A super simple GUI for Google's JPEG encoder [guetzli](https://github.com/google
 
 To install, first install the guetzli command line tool by following [the installation instructions.](https://github.com/google/guetzli#on-macos). Then, either [download the pre-built application](https://github.com/daviesgeek/guetzli-gui/releases), or build from source by using Xcode.
 
+## Contribution
+
+Please feel free to submit PRs and/or issues for changes. I reserve the right to deny any PRs or feature requests.
+
 ## License
 
 MIT License
