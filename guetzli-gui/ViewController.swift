@@ -8,26 +8,20 @@
 
 import Cocoa
 
-class ViewController: NSViewController, NSTextFieldDelegate {
+class ViewController: NSViewController {
 
-  @IBOutlet weak var binUrlField: NSTextField!
   @IBOutlet weak var inFileUrlField: NSTextField!
   @IBOutlet weak var outFileUrlField: NSTextField!
   @IBOutlet weak var qualityField: NSTextField!
   @IBOutlet weak var progressIndicator: NSProgressIndicator!
   @IBOutlet weak var compressButton: NSButton!
 
-  var binUrl : URL!
   var inFile : URL?
   var outFile : URL?
   var quality = 85
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-//    binUrl = URL(fileURLWithPath: binUrlField.stringValue)
-
-//    let (result, error) = self.execCommand("which guetzli")
 
     qualityField.integerValue = quality
 
@@ -70,14 +64,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
   }
 
-  override func controlTextDidChange(_ obj: Notification) {
-    if binUrlField.stringValue.characters.count > 0 {
-      binUrl = URL(fileURLWithPath: binUrlField.stringValue)
-    } else {
-      binUrl = nil
-    }
-  }
-
   @IBAction func qualityDidChange(_ sender: NSTextField) {
     if sender.integerValue < 84 {
       sender.integerValue = 84
@@ -89,7 +75,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
   }
 
   @IBAction func compress(_ sender: NSButton) {
-    let binUrl = self.binUrl ?? URL(fileURLWithPath: "/usr/local/bin/guetzli")
+    let binUrl = URL(fileURLWithPath: UserDefaults.standard.string(forKey: "binPath") ?? "/usr/local/bin/guetzli")
 
     guard let inFilePath = inFile?.path else {
       return
@@ -99,7 +85,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
       return
     }
 
-    binUrlField.isEnabled = false
     qualityField.isEnabled = false
     progressIndicator.isHidden = false
     progressIndicator.startAnimation(nil)
@@ -113,7 +98,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.compressButton.isEnabled = true
         self.compressButton.title = "Compress"
 
-        self.binUrlField.isEnabled = true
         self.qualityField.isEnabled = true
       })
     },

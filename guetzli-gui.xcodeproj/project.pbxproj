@@ -14,6 +14,9 @@
 		8D0483E11E7C6A59009CF777 /* guetzli_guiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0483E01E7C6A59009CF777 /* guetzli_guiTests.swift */; };
 		8D0483EC1E7C6A59009CF777 /* guetzli_guiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0483EB1E7C6A59009CF777 /* guetzli_guiUITests.swift */; };
 		8D0483FA1E7C8644009CF777 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0483F91E7C8644009CF777 /* Command.swift */; };
+		8D57F37A1E7CAC8300DDCD83 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8D57F3791E7CAC8300DDCD83 /* Credits.rtf */; };
+		8D57F3881E7CAF5800DDCD83 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57F3861E7CAF5800DDCD83 /* PreferencesWindowController.swift */; };
+		8D57F3891E7CAF5800DDCD83 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D57F3871E7CAF5800DDCD83 /* PreferencesWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		8D0483EB1E7C6A59009CF777 /* guetzli_guiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guetzli_guiUITests.swift; sourceTree = "<group>"; };
 		8D0483ED1E7C6A59009CF777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D0483F91E7C8644009CF777 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		8D57F3791E7CAC8300DDCD83 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = "Supporting Files/Credits.rtf"; sourceTree = "<group>"; };
+		8D57F3861E7CAF5800DDCD83 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesWindowController.swift; path = Preferences/PreferencesWindowController.swift; sourceTree = "<group>"; };
+		8D57F3871E7CAF5800DDCD83 /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreferencesWindowController.xib; path = Preferences/PreferencesWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,8 @@
 		8D0483CD1E7C6A59009CF777 /* guetzli-gui */ = {
 			isa = PBXGroup;
 			children = (
+				8D57F3811E7CAF2E00DDCD83 /* Preferences */,
+				8D57F3781E7CAC6E00DDCD83 /* Supporting Files */,
 				8D0483CE1E7C6A59009CF777 /* AppDelegate.swift */,
 				8D0483D01E7C6A59009CF777 /* ViewController.swift */,
 				8D0483D21E7C6A59009CF777 /* Assets.xcassets */,
@@ -125,6 +133,23 @@
 			path = "guetzli-guiUITests";
 			sourceTree = "<group>";
 		};
+		8D57F3781E7CAC6E00DDCD83 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8D57F3791E7CAC8300DDCD83 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D57F3811E7CAF2E00DDCD83 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				8D57F3861E7CAF5800DDCD83 /* PreferencesWindowController.swift */,
+				8D57F3871E7CAF5800DDCD83 /* PreferencesWindowController.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +160,7 @@
 				8D0483C71E7C6A59009CF777 /* Sources */,
 				8D0483C81E7C6A59009CF777 /* Frameworks */,
 				8D0483C91E7C6A59009CF777 /* Resources */,
+				8D57620F1E7CCAEF009177C0 /* Increment Build Number */,
 			);
 			buildRules = (
 			);
@@ -236,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D0483D31E7C6A59009CF777 /* Assets.xcassets in Resources */,
+				8D57F37A1E7CAC8300DDCD83 /* Credits.rtf in Resources */,
 				8D0483D61E7C6A59009CF777 /* Main.storyboard in Resources */,
+				8D57F3891E7CAF5800DDCD83 /* PreferencesWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +284,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8D57620F1E7CCAEF009177C0 /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8D0483C71E7C6A59009CF777 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -263,6 +308,7 @@
 			files = (
 				8D0483D11E7C6A59009CF777 /* ViewController.swift in Sources */,
 				8D0483CF1E7C6A59009CF777 /* AppDelegate.swift in Sources */,
+				8D57F3881E7CAF5800DDCD83 /* PreferencesWindowController.swift in Sources */,
 				8D0483FA1E7C8644009CF777 /* Command.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +555,7 @@
 				8D0483F21E7C6A59009CF777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D0483F31E7C6A59009CF777 /* Build configuration list for PBXNativeTarget "guetzli-guiTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +564,7 @@
 				8D0483F51E7C6A59009CF777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D0483F61E7C6A59009CF777 /* Build configuration list for PBXNativeTarget "guetzli-guiUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +573,7 @@
 				8D0483F81E7C6A59009CF777 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
